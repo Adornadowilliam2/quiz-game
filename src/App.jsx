@@ -179,7 +179,6 @@ const App = () => {
     localStorage.setItem("quizData", JSON.stringify(savedQuizData));
   }, []);
 
-  // Handle RFID card scan input
   const handleCardScan = (uid) => {
     const categoryData = quizData[uid];
     if (categoryData) {
@@ -187,13 +186,12 @@ const App = () => {
       setCurrentQuestionIndex(0);
       setScore(0);
       setSelectedAnswer("");
-      setInputUID(""); // Clear input after scanning
+      setInputUID("");
     } else {
       alert("Invalid card! Please scan a valid quiz card.");
     }
   };
 
-  // Handle answer selection
   const handleAnswer = (answer) => {
     setSelectedAnswer(answer);
     if (answer === currentCategory.questions[currentQuestionIndex].answer) {
